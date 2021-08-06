@@ -17,12 +17,12 @@ load_env $CURR_FOLDER $OPT
 
 ## Variables
 REGISTRY_USER="$( cat ${CURR_FOLDER}/.registry-user )"
-REGISTRY_PASSWD="$( cat ${CURR_FOLDER}/.registry-passwd )"
 TAG_IMAGE="${REGISTRY}/${IMAGE}:${VERSION}"
 TAG_IMAGE_LATEST="${REGISTRY}/${IMAGE}:latest"
 
 ## Build
 docker build \
+	--target main \
 	--compress \
 	--force-rm \
 	--no-cache . \
