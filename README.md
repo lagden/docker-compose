@@ -2,13 +2,18 @@
 
 [![Docker Release][dockerelease-img]][dockerelease]
 
-[dockerelease-img]:    https://img.shields.io/docker/v/lagden/docker_compose:2.0.1_docker_20.10.11
+[dockerelease-img]:    https://img.shields.io/docker/v/lagden/docker_compose/2.0.1_docker_20.10.11
 [dockerelease]:        https://hub.docker.com/r/lagden/docker_compose
+
+
+## About
+
+Helper for run CI using `docker compose`
 
 
 ## Usage
 
-Using `.gitlab-ci.yml`
+Example: `.gitlab-ci.yml`
 
 ```yaml
 stages:
@@ -25,7 +30,7 @@ test:
 ```
 
 
-Show version
+### Show version
 
 ```
 docker run -it lagden/docker_compose:2.0.1_docker_20.10.11 ash
@@ -33,8 +38,3 @@ docker compose version
 
 Docker Compose version 2.0.1
 ```
-
-
-## About
-
-Helper for run CI using `docker compose`
