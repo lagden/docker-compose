@@ -1,6 +1,10 @@
 # Auxiliar
-FROM docker/compose:alpine-1.29.2 as compose
+FROM curlimages/curl:7.80.0 as compose
+RUN mkdir -p /tmp/cli-plugins
+RUN curl -SL https://github.com/docker/compose/releases/download/v2.0.1/docker-compose-linux-x86_64 -o /tmp/cli-plugins/docker-compose
+RUN chmod +x /tmp/cli-plugins/docker-compose
 
 # Imagem
-FROM docker:20.10.8 as main
-COPY --from=compose /usr/local/bin/docker-compose /usr/local/bin/docker-compose
+FROM docker:20.10.11 as main
+RUN mkdir -p /root/.docker/cli-plugins
+COPY --from=compose /tmp/cli-plugins/docker-compose /root/.docker/cli-plugins/.
